@@ -6,9 +6,11 @@ export const buttonVariant = cva('block rounded-md', {
   variants: {
     variant: {
       primary:
-        'bg-gradient-to-r from-red-600 via-[#ea384d] to-[#d31027] bg-[length:200%_auto] transition-all duration-500',
+        'bg-gradient-to-r from-red-600 via-[#ea384d] to-[#d31027] bg-[length:200%_auto] hover:bg-right transition-all duration-500',
       navItem:
-        'font-semibold px-2 text-zinc-300 hover:text-white hover:bg-[rgba(100,100,100,0.5)] hover:backdrop-blur-md'
+        'font-semibold px-2 text-zinc-300 hover:text-white hover:bg-[rgba(100,100,100,0.5)] hover:backdrop-blur-md',
+      icon:
+        'bg-[rgba(100,100,100,0.5)] hover:bg-[rgba(150,150,150,0.5)] backdrop-blur-md p-2 transition-all duration-500'
     }
   },
   defaultVariants: {

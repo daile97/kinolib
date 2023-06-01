@@ -12,6 +12,9 @@ export const mcn = (...classes: ClassValue[]) => twMerge(cx(...classes))
 export const getName = (movie: IMovieBasicInfo | ITvBasicInfo) =>
   'title' in movie ? movie.title : movie.name
 
+export const getMediaType = (movie: IMovieBasicInfo | ITvBasicInfo) =>
+  'title' in movie ? 'Phim lẻ' : 'Phim bộ'
+
 export const getImageUrl = (route: string, filePath: string) =>
   `${imageBaseUrl}${route}${filePath}`
 

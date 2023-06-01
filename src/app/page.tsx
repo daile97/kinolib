@@ -1,11 +1,10 @@
+import { HomeHero } from "@/components/HomeHero"
 import { getTrending } from "@/lib/utils"
 
 const Home = async () => {
-  const data = await getTrending()
-
   return (
-    <main className='bg-red-500 text-white'>
-      <h1>Hello</h1>
+    <main className='px-5 md:px-12 lg:px-40'>
+      <HomeHero />
     </main>
   )
 }
