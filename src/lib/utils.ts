@@ -29,3 +29,39 @@ export const getTrending = () =>
     '/trending/all/day',
     '?language=vi-VN'
   )
+
+export const getTrendingMovie = () =>
+  fetcher<IResponses<IMovieBasicInfo>>(
+    '/trending/movie/week',
+    '?language=vi-VN'
+  )
+
+export const getTrendingTV = () =>
+  fetcher<IResponses<ITvBasicInfo>>('/trending/tv/week', '?language=vi-VN')
+
+export const getTopRatedMovie = () =>
+  fetcher<IResponses<IMovieBasicInfo>>('/movie/top_rated', '?language=vi-VN')
+
+export const getTopRatedTV = () =>
+  fetcher<IResponses<IMovieBasicInfo>>('/tv/top_rated', '?language=vi-VN')
+
+const getMovieByLang = (lang: string) =>
+  fetcher<IResponses<IMovieBasicInfo>>(
+    '/discover/movie',
+    `?include_adult=false&include_video=false&language=vi-VN&page=1&sort_by=popularity.desc&with_original_language=${lang}`
+  )
+
+const getTVByLang = (lang: string) =>
+  fetcher<IResponses<ITvBasicInfo>>(
+    '/discover/tv',
+    `?include_adult=false&include_video=false&language=vi-VN&page=1&sort_by=popularity.desc&with_original_language=${lang}`
+  )
+
+export const getVNMovie = () => getMovieByLang('vi')
+export const getVNTV = () => getTVByLang('vi')
+
+export const getCNMovie = () => getMovieByLang('cn')
+export const getCNTV = () => getTVByLang('cn')
+
+export const getKORMovie = () => getMovieByLang('ko')
+export const getKORTV = () => getTVByLang('ko')

@@ -11,8 +11,9 @@ export const Carousel: FC<IProps> = ({ children }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     dragFree: false,
-    slidesToScroll: 'auto' 
+    slidesToScroll: 'auto'
   })
+
   const [canScrollNext, setCanScrollNext] = useState<boolean>(false)
   const [canScrollPrev, setCanScrollPrev] = useState<boolean>(false)
 
@@ -20,18 +21,17 @@ export const Carousel: FC<IProps> = ({ children }) => {
     if (!emblaApi) return
     setCanScrollNext(emblaApi.canScrollNext())
     setCanScrollPrev(emblaApi.canScrollPrev())
-    console.log(emblaApi.selectedScrollSnap(), emblaApi.slidesInView())
   }, [emblaApi])
 
-  const scrollPrev = useCallback(() => {
-    if (!emblaApi) return
-    emblaApi.scrollPrev()
-  }, [emblaApi])
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi]
+  )
 
-  const scrollNext = useCallback(() => {
-    if (!emblaApi) return
-    emblaApi.scrollNext()
-  }, [emblaApi])
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi]
+  )
 
   useEffect(() => {
     if (!emblaApi) return
@@ -50,23 +50,23 @@ export const Carousel: FC<IProps> = ({ children }) => {
       ref={emblaRef}
       className="overflow-hidden group relative"
     >
-      <div className="flex gap-2">{children}</div>
+      <div className="flex gap-3">{children}</div>
       {canScrollPrev && (
         <Button
           onClick={scrollPrev}
           variant="icon"
-          className="absolute rounded-full left-5 top-1/2 -translate-y-[calc(50%+20px)] opacity-0 group-hover:opacity-100"
+          className="absolute rounded-full w-8 h-8 left-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
         >
-          <RxChevronLeft />
+          <RxChevronLeft strokeWidth={0.8}/>
         </Button>
       )}
       {canScrollNext && (
         <Button
           onClick={scrollNext}
           variant="icon"
-          className="absolute rounded-full right-5 top-1/2 -translate-y-[calc(50%+20px)] opacity-0 group-hover:opacity-100"
+          className="absolute rounded-full w-8 h-8 right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
         >
-          <RxChevronRight />
+          <RxChevronRight strokeWidth={0.8} />
         </Button>
       )}
     </div>
