@@ -1,7 +1,13 @@
 import { cx } from 'class-variance-authority'
 import { ClassValue } from 'class-variance-authority/dist/types'
 import { twMerge } from 'tailwind-merge'
-import { IMovieBasicInfo, IResponses, ITvBasicInfo } from './types'
+import {
+  IMovieBasicInfo,
+  IMovieDetails,
+  IResponses,
+  ITVDetails,
+  ITvBasicInfo
+} from './types'
 import { baseUrl, fetchOptions, imageBaseUrl } from './tmdb'
 
 // According to the cva docs, the library still has a small margin of error
@@ -65,3 +71,15 @@ export const getCNTV = () => getTVByLang('cn')
 
 export const getKORMovie = () => getMovieByLang('ko')
 export const getKORTV = () => getTVByLang('ko')
+
+export const getMovieDetails = (id: string) =>
+  fetcher<IMovieDetails>(
+    `/movie/${id}`,
+    '?append_to_response=videos,images,credits&language=vi-VN,null'
+  )
+
+export const getTVDetails = (id: string) =>
+  fetcher<ITVDetails>(
+    `/tv/${id}`,
+    '?append_to_response=videos,images,credits&language=vi-VN,null'
+  )

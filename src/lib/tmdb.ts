@@ -38,5 +38,17 @@ export const imageConfigs: IImageConfigs = {
       height: 750,
       width: 500
     }
+  },
+  profile: {
+    lg: {
+      route: '/original',
+      height: 632,
+      width: 421
+    },
+    sm: {
+      route: '/w185',
+      height: 277.5,
+      width: 185
+    }
   }
 }

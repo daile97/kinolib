@@ -12,6 +12,10 @@ export interface IImageConfigs {
   poster: {
     lg: IImageConfig
     sm: IImageConfig
+  },
+  profile: {
+    lg: IImageConfig
+    sm: IImageConfig
   }
 }
 
@@ -28,6 +32,14 @@ interface IGenre {
   name: string
 }
 
+interface ICast {
+  id: number
+  name: string
+  character: string
+  popularity: number
+  profile_path: string
+}
+
 export interface IMovieBasicInfo extends IBasicInfo {
   title: string
 }
@@ -40,6 +52,18 @@ export interface IMovieDetails extends IMovieBasicInfo {
   genres: IGenre[]
   release_date: string
   tagline: string
+  runtime: string
+  credits: {
+    cast: ICast[]
+  }
+}
+
+export interface ITVDetails extends ITvBasicInfo {
+  genres: IGenre[]
+  tagline: string
+  credits: {
+    cast: ICast[]
+  }
 }
 
 export interface IResponses<T> {
