@@ -9,6 +9,7 @@ import { getMovieDetails } from '@/lib/utils'
 
 const MovieDetailPage = async ({ params }: { params: { id: string } }) => {
   const data = await getMovieDetails(params.id)
+  console.log(data.recommendations)
   const trailer = data.videos.results.find(
     video =>
       video.site === 'YouTube' &&
@@ -16,7 +17,14 @@ const MovieDetailPage = async ({ params }: { params: { id: string } }) => {
   )
   return (
     <main className="px-5 md:px-12 lg:px-40 flex flex-col gap-3">
-      <DetailHero video={trailer ? `https://www.youtube.com/embed/${trailer?.key}?controls=0` : null} filePath={data.backdrop_path || ''} />
+      <DetailHero
+        video={
+          trailer
+            ? `https://www.youtube.com/embed/${trailer?.key}?controls=0`
+            : null
+        }
+        filePath={data.backdrop_path || ''}
+      />
       <Info
         title={data.title}
         overview={data.overview}
@@ -34,7 +42,9 @@ const MovieDetailPage = async ({ params }: { params: { id: string } }) => {
         <Collection collection={data.belongs_to_collection} />
       )}
       <MovieImage images={data.images.backdrops} />
-      <Recommendations movies={data.recommendations.results} />
+      {data.recommendations.results.length > 0 && (
+        <Recommendations movies={data.recommendations.results} />
+      )}
     </main>
   )
 }

@@ -33,7 +33,10 @@ const TVDetailPage = async ({ params }: { params: { id: string } }) => {
       <Cast casts={data.credits.cast.slice(0, 8)} />
       <Seasons seasons={data.seasons} />
       <MovieImage images={data.images.backdrops} />
+      {
+        data.recommendations.results.length > 0 &&
       <Recommendations movies={data.recommendations.results} />
+      }
     </main>
   )
 }
