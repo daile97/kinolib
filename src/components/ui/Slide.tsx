@@ -8,7 +8,8 @@ const slideVariant = cva('relative flex-grow-0 flex-shrink-0 rounded-md', {
     variant: {
       full: 'basis-full',
       vertical: 'basis-1/3 md:basis-1/4 xl:basis-1/5',
-      horizontal: 'basis-[60%] md:basis-1/3 xl:basis-1/4'
+      horizontal: 'basis-[60%] md:basis-1/3 xl:basis-1/4',
+      detailPage: 'basis-full md:basis-1/2 w-full aspect-video'
     }
   }
 })

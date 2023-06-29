@@ -18,7 +18,7 @@ export const CastCard: FC<IProps> = ({ filePath, name }) => {
           width={profile.sm.width}
           height={profile.sm.height}
           alt="profile image"
-          className='w-full h-full object-center object-fill block'
+          className='w-full h-full object-center object-cover block'
         />
       </div>
       <div>

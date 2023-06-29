@@ -75,11 +75,11 @@ export const getKORTV = () => getTVByLang('ko')
 export const getMovieDetails = (id: string) =>
   fetcher<IMovieDetails>(
     `/movie/${id}`,
-    '?append_to_response=videos,images,credits&language=vi-VN,null'
+    '?append_to_response=videos,images,credits,recommendations&language=vi-VN,null'
   )
 
 export const getTVDetails = (id: string) =>
   fetcher<ITVDetails>(
     `/tv/${id}`,
-    '?append_to_response=videos,images,credits&language=vi-VN,null'
+    '?append_to_response=videos,images,credits,recommendations&language=vi-VN,null'
   )

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Carousel } from './ui/Carousel'
 import { Slide } from './ui/Slide'
 import { Button } from './ui/Button'
-import { RxStar } from 'react-icons/rx'
+import { RxStarFilled } from 'react-icons/rx'
 import Link from 'next/link'
 
 export const HomeHero = async () => {
@@ -38,7 +38,7 @@ export const HomeHero = async () => {
                   {getMediaType(movie)}
                 </span>
                 <span className="flex items-center gap-1 text-yellow-400 font-semibold text-sm md:text-md">
-                  <RxStar />
+                  <RxStarFilled/>
                   {movie.vote_average.toFixed(1)}
                 </span>
               </h3>
