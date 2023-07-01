@@ -30,13 +30,15 @@ export const Discover = ({ mediaType }: IProps) => {
     getMovie()
     return () => controller.abort()
   }, [getMovie])
+  if (!data) return null
   return (
     <div>
       <select
-        className="bg-transparent text-sm mb-5 border-[1px] rounded-md"
+        className="bg-transparent text-sm font-semibold mb-5 border-[1px] rounded-md"
         value={genre}
         onChange={onSelect}
       >
+        <option value='' className='text-black'>Tất cả thể loại</option>
         {genres.map(genre => (
           <option
             value={genre.id}

@@ -47,6 +47,10 @@ export interface ICast {
   profile_path: string
 }
 
+export interface ICastSearchResult extends ICast {
+  media_type: string
+}
+
 export interface IImage {
   aspect_ratio: number
   height: number
@@ -74,8 +78,16 @@ export interface IMovieBasicInfo extends IBasicInfo {
   title: string
 }
 
+export interface IMovieSearchResult extends IMovieBasicInfo {
+  media_type: string
+}
+
 export interface ITvBasicInfo extends IBasicInfo {
   name: string
+}
+
+export interface ITvSearchResult extends ITvBasicInfo {
+  media_type: string
 }
 
 export interface IMovieDetails extends IMovieBasicInfo {

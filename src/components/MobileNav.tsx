@@ -1,6 +1,7 @@
 import { navItems } from '@/lib/pageConfigs'
 import { Button } from './ui/Button'
 import Link from 'next/link'
+import { SearchBox } from './SearchBox'
 
 export const MobileNav = () => {
   return (
@@ -22,6 +23,7 @@ export const MobileNav = () => {
           </li>
         ))}
       </ul>
+      <SearchBox mobile />
     </nav>
   )
 }

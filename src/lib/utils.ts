@@ -2,11 +2,15 @@ import { cx } from 'class-variance-authority'
 import { ClassValue } from 'class-variance-authority/dist/types'
 import { twMerge } from 'tailwind-merge'
 import {
+  ICast,
+  ICastSearchResult,
   IMovieBasicInfo,
   IMovieDetails,
+  IMovieSearchResult,
   IResponses,
   ITVDetails,
-  ITvBasicInfo
+  ITvBasicInfo,
+  ITvSearchResult
 } from './types'
 import { baseUrl, fetchOptions, imageBaseUrl } from './tmdb'
 
@@ -89,8 +93,18 @@ export const getAllMovie = () =>
     '/discover/movie',
     '?include_adult=false&language=vi-VN&page=1&sort_by=popularity.desc'
   )
-export const getDiscoveredMovie = (pageIndex: number, mediaType: string, sortOption: string) =>
+export const getDiscoveredMovie = (
+  pageIndex: number,
+  mediaType: string,
+  sortOption: string
+) =>
   fetcher<IResponses<IMovieBasicInfo | ITvBasicInfo>>(
     `/discover/${mediaType}`,
     `?include_adult=false&language=vi-VN&page=${pageIndex}&sort_by=popularity.desc${sortOption}`
+  )
+
+export const getSearchResult = (term: string) =>
+  fetcher<IResponses<IMovieSearchResult | ITvSearchResult | ICastSearchResult>>(
+    '/search/multi',
+    `?query=${term}&include_adult=false&language=vi-VNpage=1`
   )
