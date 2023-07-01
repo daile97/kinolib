@@ -83,3 +83,14 @@ export const getTVDetails = (id: string) =>
     `/tv/${id}`,
     '?append_to_response=videos,images,credits,recommendations&language=vi-VN,null'
   )
+
+export const getAllMovie = () =>
+  fetcher<IResponses<IMovieBasicInfo>>(
+    '/discover/movie',
+    '?include_adult=false&language=vi-VN&page=1&sort_by=popularity.desc'
+  )
+export const getDiscoveredMovie = (pageIndex: number, mediaType: string, sortOption: string) =>
+  fetcher<IResponses<IMovieBasicInfo | ITvBasicInfo>>(
+    `/discover/${mediaType}`,
+    `?include_adult=false&language=vi-VN&page=${pageIndex}&sort_by=popularity.desc${sortOption}`
+  )

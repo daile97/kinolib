@@ -119,4 +119,5 @@ export interface ITVDetails extends ITvBasicInfo {
 
 export interface IResponses<T> {
   results: T[]
+  total_pages: number
 }
