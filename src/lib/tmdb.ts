@@ -17,9 +17,9 @@ export const fetchOptions = {
 export const imageConfigs: IImageConfigs = {
   backdrop: {
     lg: {
-      route: '/original',
+      route: '/w1280',
       height: 810,
-      width: 1440
+      width: 1280
     },
     sm: {
       route: '/w780',
@@ -29,7 +29,7 @@ export const imageConfigs: IImageConfigs = {
   },
   poster: {
     lg: {
-      route: '/original',
+      route: '/w780',
       height: 1170,
       width: 780
     },

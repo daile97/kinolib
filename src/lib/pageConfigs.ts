@@ -12,6 +12,8 @@ import {
   getVNTV
 } from './utils'
 
+export const blurDataUrl = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAARCAYAAADkIz3lAAAAGElEQVR42mNkY5Q/yEAEYBxVOKpwECkEAP7jD2ldWTIFAAAAAElFTkSuQmCC"
+
 interface INavItem {
   title: string
   id: number

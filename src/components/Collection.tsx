@@ -4,6 +4,7 @@ import { getImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import { FC } from 'react'
 import fallback from '../../public/poster_fallback.png'
+import { blurDataUrl } from '@/lib/pageConfigs'
 
 interface IProps {
   collection: IColection
@@ -25,6 +26,8 @@ export const Collection: FC<IProps> = ({ collection }) => {
           width={poster.lg.width}
           height={poster.lg.height}
           className="w-40 rounded-md"
+          placeholder='blur'
+          blurDataURL={blurDataUrl}
         />
         <h3 className="font-semibold text-zinc-300">{collection.name}</h3>
       </div>

@@ -7,6 +7,7 @@ import { imageConfigs } from '@/lib/tmdb'
 import { getImageUrl, getMediaType, getName } from '@/lib/utils'
 import { SlideHoverLayer } from './ui/SlideHoverLayer'
 import fallback from '../../public/backdrop_fallback.png'
+import { blurDataUrl } from '@/lib/pageConfigs'
 
 interface IProps {
   movies: IMovieBasicInfo[] | ITvBasicInfo[]
@@ -18,20 +19,28 @@ export const Recommendations: FC<IProps> = ({ movies }) => {
     <section>
       <h2 className="font-bold text-xl mb-2">Phim đề xuất</h2>
       <Carousel>
-        {movies.map(movie => (
+        {movies.map((movie, i) => (
           <Slide
             key={movie.id}
             variant="horizontal"
           >
             <Image
-              src={getImageUrl(backdrop.sm.route, movie.backdrop_path || '') || fallback}
+              src={
+                getImageUrl(backdrop.sm.route, movie.backdrop_path || '') ||
+                fallback
+              }
               alt="movie image"
               width={backdrop.sm.width}
               height={backdrop.sm.height}
               className="w-full h-full block rounded-md"
+              priority={i === 0}
+              placeholder='blur'
+              blurDataURL={blurDataUrl}
             />
             <SlideHoverLayer
-              href={`/${getMediaType(movie) === 'Phim bộ' ? 'phim-bo' : 'phim-le'}/${movie.id}`}
+              href={`/${
+                getMediaType(movie) === 'Phim bộ' ? 'phim-bo' : 'phim-le'
+              }/${movie.id}`}
               title={getName(movie)}
             />
           </Slide>

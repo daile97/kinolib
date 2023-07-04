@@ -4,6 +4,7 @@ import { getImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import { FC } from 'react'
 import fallback from '../../public/poster_fallback.png'
+import { blurDataUrl } from '@/lib/pageConfigs'
 
 interface IProps {
   seasons: ISeason[]
@@ -24,6 +25,8 @@ export const Seasons: FC<IProps> = ({ seasons }) => {
                 height={poster.sm.height}
                 alt="poster"
                 className="w-full h-full block rounded-md"
+                placeholder='blur'
+                blurDataURL={blurDataUrl}
               />
             </div>
             <h3>{season.name}</h3>

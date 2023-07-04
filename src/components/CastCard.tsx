@@ -3,6 +3,7 @@ import { getImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import { FC } from 'react'
 import fallback from '../../public/profile_fallback_round.png'
+import { blurDataUrl } from '@/lib/pageConfigs'
 
 interface IProps {
   filePath: string
@@ -20,6 +21,8 @@ export const CastCard: FC<IProps> = ({ filePath, name }) => {
           height={profile.sm.height}
           alt="profile image"
           className='w-full h-full object-center object-cover block'
+          placeholder='blur'
+          blurDataURL={blurDataUrl}
         />
       </div>
       <div>

@@ -5,6 +5,8 @@ import { Slide } from './ui/Slide'
 import { imageConfigs } from '@/lib/tmdb'
 import Image from 'next/image'
 import { getImageUrl } from '@/lib/utils'
+import fallback from '../../public/backdrop_fallback.png'
+import { blurDataUrl } from '@/lib/pageConfigs'
 
 interface IProps {
   images: IImage[]
@@ -23,11 +25,16 @@ export const MovieImage: FC<IProps> = ({ images }) => {
               variant="detailPage"
             >
               <Image
-                src={getImageUrl(backdrop.lg.route, image.file_path || '')}
+                src={
+                  getImageUrl(backdrop.lg.route, image.file_path || '') ||
+                  fallback
+                }
                 alt="movie image"
                 width={image.width}
                 height={image.width * image.aspect_ratio}
                 className="w-full h-full block"
+                placeholder="blur"
+                blurDataURL={blurDataUrl}
               />
             </Slide>
           ))

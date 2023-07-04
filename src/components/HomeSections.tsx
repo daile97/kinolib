@@ -5,7 +5,7 @@ import { MovieList } from './MovieList'
 export const HomeSection: FC<ISection> = ({ title, lists }) => {
   return (
     <section className='mt-5'>
-      <h2 className='md:text-lg lg:text-xl xl:text-2xl font-bold'>{title}</h2>
+      <h2 className='text-2xl font-bold'>{title}</h2>
       <div className="flex flex-col gap-2">
         {lists.map((list, i) => (
           <MovieList

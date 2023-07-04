@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { FC } from 'react'
 import { Video } from './Video'
 import fallback from '../../public/backdrop_fallback.png'
+import { blurDataUrl } from '@/lib/pageConfigs'
 
 interface IProps {
   filePath: string
@@ -20,6 +21,8 @@ export const DetailHero: FC<IProps> = ({ filePath, video }) => {
         height={backdrop.lg.height}
         alt="hero image"
         className="w-full h-full block"
+        placeholder='blur'
+        blurDataURL={blurDataUrl}
       />
       {video && <Video video={video} />}
     </section>

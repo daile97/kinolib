@@ -7,6 +7,7 @@ import { Button } from './ui/Button'
 import { RxStarFilled } from 'react-icons/rx'
 import Link from 'next/link'
 import fallback from '../../public/backdrop_fallback.png'
+import { blurDataUrl } from '@/lib/pageConfigs'
 
 export const HomeHero = async () => {
   const { results: movies } = await getTrending()
@@ -14,7 +15,7 @@ export const HomeHero = async () => {
   return (
     <section className="mt-5 w-full aspect-video">
       <Carousel>
-        {movies.map(movie => (
+        {movies.map((movie, i) => (
           <Slide
             key={movie.id}
             variant="full"
@@ -28,6 +29,9 @@ export const HomeHero = async () => {
               height={imageConfigs.backdrop.lg.height}
               alt="movie backdrop"
               className="w-full h-full block rounded-md"
+              priority={i === 0}
+              placeholder='blur'
+              blurDataURL={blurDataUrl}
             />
             <div className="w-full h-full absolute left-0 top-0 bg-gradient-to-t from-black via-[rgba(0,0,0,0.7)]" />
             <div className="absolute px-5 py-3 top-1/2 left-0">
