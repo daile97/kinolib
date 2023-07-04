@@ -2,6 +2,7 @@ import { imageConfigs } from '@/lib/tmdb'
 import { getImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import { FC } from 'react'
+import fallback from '../../public/profile_fallback_round.png'
 
 interface IProps {
   filePath: string
@@ -14,7 +15,7 @@ export const CastCard: FC<IProps> = ({ filePath, name }) => {
     <div className='flex flex-col items-center'>
       <div className='rounded-full overflow-hidden w-14 h-14'>
         <Image
-          src={getImageUrl(profile.sm.route, filePath)}
+          src={getImageUrl(profile.sm.route, filePath) || fallback}
           width={profile.sm.width}
           height={profile.sm.height}
           alt="profile image"
@@ -22,7 +23,7 @@ export const CastCard: FC<IProps> = ({ filePath, name }) => {
         />
       </div>
       <div>
-        <p className='text-sm text-center'>{name}</p>
+        <p className='text-sm font-semibold text-center'>{name}</p>
       </div>
     </div>
   )

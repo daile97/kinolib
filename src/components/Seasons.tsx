@@ -3,6 +3,7 @@ import { ISeason } from '@/lib/types'
 import { getImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import { FC } from 'react'
+import fallback from '../../public/poster_fallback.png'
 
 interface IProps {
   seasons: ISeason[]
@@ -18,7 +19,7 @@ export const Seasons: FC<IProps> = ({ seasons }) => {
           <div key={season.id}>
             <div className="w-full aspect-[3/4]">
               <Image
-                src={getImageUrl(poster.sm.route, season.poster_path || '')}
+                src={getImageUrl(poster.sm.route, season.poster_path || '') || fallback}
                 width={poster.sm.width}
                 height={poster.sm.height}
                 alt="poster"

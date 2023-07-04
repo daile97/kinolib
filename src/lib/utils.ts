@@ -26,7 +26,7 @@ export const getMediaType = (movie: IMovieBasicInfo | ITvBasicInfo) =>
   'title' in movie ? 'Phim lẻ' : 'Phim bộ'
 
 export const getImageUrl = (route: string, filePath: string) =>
-  `${imageBaseUrl}${route}${filePath}`
+  filePath ? `${imageBaseUrl}${route}${filePath}` : false
 
 export const fetcher = async <T>(route: string, query: string): Promise<T> => {
   const res = await fetch(`${baseUrl}${route}${query}`, fetchOptions)

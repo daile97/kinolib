@@ -6,6 +6,7 @@ import { Slide } from './ui/Slide'
 import { Button } from './ui/Button'
 import { RxStarFilled } from 'react-icons/rx'
 import Link from 'next/link'
+import fallback from '../../public/backdrop_fallback.png'
 
 export const HomeHero = async () => {
   const { results: movies } = await getTrending()
@@ -22,7 +23,7 @@ export const HomeHero = async () => {
               src={getImageUrl(
                 imageConfigs.backdrop.lg.route,
                 movie.backdrop_path || ''
-              )}
+              ) || fallback}
               width={imageConfigs.backdrop.lg.width}
               height={imageConfigs.backdrop.lg.height}
               alt="movie backdrop"

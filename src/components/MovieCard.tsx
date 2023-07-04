@@ -5,6 +5,7 @@ import { getImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
+import fallback from '../../public/poster_fallback.png'
 
 interface IProps {
   filePath: string
@@ -20,7 +21,7 @@ export const MovieCard: FC<IProps> = ({ filePath, title, id, route }) => {
       <Link href={`/${route}/${id}`}>
         <div className='overflow-hidden'>
           <Image
-            src={getImageUrl(poster.lg.route, filePath || '')}
+            src={getImageUrl(poster.lg.route, filePath || '') || fallback}
             alt="poster"
             width={poster.lg.width}
             height={poster.lg.height}

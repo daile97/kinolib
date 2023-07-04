@@ -19,6 +19,7 @@ export const SearchBox = ({ mobile }: IProps) => {
 
   const onSearch = () => {
     router.push(`/tim-kiem/${term}`)
+    setTerm('')
   }
 
   return (
