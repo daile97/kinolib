@@ -22,10 +22,10 @@ export const MovieCard: FC<IProps> = ({ filePath, title, id, route }) => {
       <Link href={`/${route}/${id}`}>
         <div className='overflow-hidden'>
           <Image
-            src={getImageUrl(poster.lg.route, filePath || '') || fallback}
+            src={getImageUrl(poster.sm.route, filePath || '') || fallback}
             alt="poster"
-            width={poster.lg.width}
-            height={poster.lg.height}
+            width={poster.sm.width}
+            height={poster.sm.height}
             className="block w-full h-full hover:scale-125 transition-transform duration-500"
             placeholder="blur"
             blurDataURL={blurDataUrl}

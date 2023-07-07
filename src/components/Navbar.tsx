@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { MainNav } from './MainNav'
 import { Button } from './ui/Button'
-import { useCallback, useState } from 'react'
+import {  useCallback, useState } from 'react'
 import { RxCross2, RxHamburgerMenu } from 'react-icons/rx'
 import { MobileNav } from './MobileNav'
 import { SearchBox } from './SearchBox'
@@ -11,7 +11,7 @@ import { SearchBox } from './SearchBox'
 export const Navbar = () => {
   const [isMenuOpend, setIsMenuOpened] = useState<boolean>(false)
 
-  const onMenuButtonClicked = useCallback(() => {
+  const toggleMenu = useCallback(() => {
     setIsMenuOpened(prevState => !prevState)
   }, [])
 
@@ -20,17 +20,17 @@ export const Navbar = () => {
       <h1 className="font-bold text-zinc-300 hover:text-white">
         <Link href="/">Kinolib</Link>
       </h1>
-      <div className='flex-1' />
-      <SearchBox mobile={false} />
+      <div className="flex-1" />
+      <SearchBox />
       <MainNav />
-      {isMenuOpend && <MobileNav />}
-      <Button
-        variant="navItem"
-        className="py-2 md:hidden"
-        onClick={onMenuButtonClicked}
-      >
-        {isMenuOpend ? <RxCross2 /> : <RxHamburgerMenu />}
-      </Button>
+      {isMenuOpend && <MobileNav toggleMenu={toggleMenu} />}
+        <Button
+          variant="navItem"
+          className="py-2 md:hidden"
+          onClick={toggleMenu}
+        >
+          {isMenuOpend ? <RxCross2 /> : <RxHamburgerMenu />}
+        </Button>
     </header>
   )
 }

@@ -13,23 +13,15 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {}
 const options: EmblaOptionsType = {
   align: 'start',
   dragFree: false,
+  slidesToScroll: 'auto',
   duration: 35
 }
 
 export const Carousel: FC<IProps> = ({ children }) => {
-
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
   const [canScrollNext, setCanScrollNext] = useState<boolean>(false)
   const [canScrollPrev, setCanScrollPrev] = useState<boolean>(false)
-  const [slides, setSlides] = useState<number>(0)
-  const [index, setIndex] = useState<number>(0)
-
-  const onInit = useCallback((emblaApi: EmblaCarouselType) => {
-    if (!emblaApi) return
-    setSlides(emblaApi.slidesInView().length)
-    setIndex(emblaApi.selectedScrollSnap())
-  }, [])
 
   const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
     if (!emblaApi) return
@@ -38,30 +30,23 @@ export const Carousel: FC<IProps> = ({ children }) => {
   }, [])
 
   const scrollPrev = useCallback(() => {
-    if (!emblaApi) return
-    emblaApi.scrollTo(index - slides)
-    setIndex(emblaApi.selectedScrollSnap())
-  }, [index, slides, emblaApi])
+    emblaApi && emblaApi.scrollPrev()
+  }, [emblaApi])
 
   const scrollNext = useCallback(() => {
-    if (!emblaApi) return
-    emblaApi.scrollTo(index + slides)
-    setIndex(emblaApi.selectedScrollSnap())
-  }, [index, slides, emblaApi])
+    emblaApi && emblaApi.scrollNext()
+  }, [emblaApi])
 
   useEffect(() => {
     if (!emblaApi) return
-    onInit(emblaApi)
     onSelect(emblaApi)
-    emblaApi.on('reInit', onInit)
     emblaApi.on('reInit', onSelect)
     emblaApi.on('select', onSelect)
     return () => {
-      emblaApi.on('reInit', onInit)
       emblaApi.off('reInit', onSelect)
       emblaApi.off('select', onSelect)
     }
-  }, [emblaApi, onSelect, onInit])
+  }, [emblaApi, onSelect])
 
   return (
     <div

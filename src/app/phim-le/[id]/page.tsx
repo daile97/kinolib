@@ -9,7 +9,6 @@ import { getMovieDetails } from '@/lib/utils'
 
 const MovieDetailPage = async ({ params }: { params: { id: string } }) => {
   const data = await getMovieDetails(params.id)
-  console.log(data.recommendations)
   const trailer = data.videos.results.find(
     video =>
       video.site === 'YouTube' &&

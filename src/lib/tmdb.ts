@@ -18,7 +18,7 @@ export const imageConfigs: IImageConfigs = {
   backdrop: {
     lg: {
       route: '/w1280',
-      height: 810,
+      height: 720,
       width: 1280
     },
     sm: {
@@ -41,7 +41,7 @@ export const imageConfigs: IImageConfigs = {
   },
   profile: {
     lg: {
-      route: '/original',
+      route: '/h632',
       height: 632,
       width: 421
     },

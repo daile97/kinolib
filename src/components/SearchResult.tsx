@@ -11,6 +11,8 @@ interface IProps {
 }
 
 export const SearchResult = ({ data }: IProps) => {
+  if (data.length === 0) return <p>Không tìm thấy kết quả phù hợp</p>
+
   return (
     <section className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {data.map(res => {

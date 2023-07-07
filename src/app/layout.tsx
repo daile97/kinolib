@@ -21,7 +21,7 @@ export default function RootLayout({
       <body
         className={mcn(
           inter.className,
-          'min-h-screen antialiased bg-black text-white'
+          'min-h-screen antialiased bg-black text-white relative'
         )}
       >
         <Navbar />

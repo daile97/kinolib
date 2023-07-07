@@ -29,12 +29,12 @@ export const MovieList = async ({ getData, title, vertical }: IProps) => {
             <Image
               src={
                 getImageUrl(
-                  vertical ? poster.lg.route : backdrop.sm.route,
+                  vertical ? poster.sm.route : backdrop.sm.route,
                   vertical ? movie.poster_path || '' : movie.backdrop_path || ''
                 ) || (vertical ? posterFallback : backdropFallback)
               }
-              width={vertical ? poster.lg.width : backdrop.sm.width}
-              height={vertical ? poster.lg.height : backdrop.sm.height}
+              width={vertical ? poster.sm.width : backdrop.sm.width}
+              height={vertical ? poster.sm.height : backdrop.sm.height}
               alt="movie image"
               className="w-full block h-full rounded-md"
               priority={i === 0}
