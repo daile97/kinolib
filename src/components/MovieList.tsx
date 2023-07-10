@@ -17,7 +17,7 @@ export const MovieList = async ({ getData, title, vertical }: IProps) => {
   const { backdrop, poster } = imageConfigs
   return (
     <div>
-      <h3 className="px-5 mb-1 text-zinc-300 text-lg font-semibold">
+      <h3 className="px-5 mb-2 text-zinc-300 text-md font-semibold">
         {title}
       </h3>
       <Carousel>

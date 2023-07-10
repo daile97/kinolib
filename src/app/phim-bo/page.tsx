@@ -1,11 +1,12 @@
-import { Discover } from "@/components/Discover"
+import { Discover } from '@/components/Discover'
+import { Main } from '@/components/ui/Main'
 
 const TVPage = () => {
   return (
-    <main className="px-5 md:px-12 lg:px-40 mt-5">
-      <h2 className="text-xl md:text-2xl font-bold mb-3">Phim bộ</h2>
+    <Main>
+      <h1 className="text-xl md:text-2xl font-bold mt-3">Phim bộ</h1>
       <Discover mediaType="tv" />
-    </main>
+    </Main>
   )
 }
 

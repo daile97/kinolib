@@ -1,11 +1,12 @@
 import { FC } from 'react'
 import { ISection } from '@/lib/pageConfigs'
 import { MovieList } from './MovieList'
+import { SectionTitle } from './ui/SectionTitle'
 
 export const HomeSection: FC<ISection> = ({ title, lists }) => {
   return (
-    <section className='mt-5'>
-      <h2 className='text-2xl font-bold'>{title}</h2>
+    <section>
+      <SectionTitle className='mb-0'>{title}</SectionTitle>
       <div className="flex flex-col gap-2">
         {lists.map((list, i) => (
           <MovieList

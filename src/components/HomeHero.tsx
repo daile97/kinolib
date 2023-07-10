@@ -21,16 +21,18 @@ export const HomeHero = async () => {
             variant="full"
           >
             <Image
-              src={getImageUrl(
-                imageConfigs.backdrop.lg.route,
-                movie.backdrop_path || ''
-              ) || fallback}
+              src={
+                getImageUrl(
+                  imageConfigs.backdrop.lg.route,
+                  movie.backdrop_path || ''
+                ) || fallback
+              }
               width={imageConfigs.backdrop.lg.width}
               height={imageConfigs.backdrop.lg.height}
               alt="movie backdrop"
               className="w-full h-full block rounded-md"
               priority={i === 0}
-              placeholder='blur'
+              placeholder="blur"
               blurDataURL={blurDataUrl}
             />
             <div className="w-full h-full absolute left-0 top-0 bg-gradient-to-t from-black via-[rgba(0,0,0,0.7)]" />
@@ -43,7 +45,7 @@ export const HomeHero = async () => {
                   {getMediaType(movie)}
                 </span>
                 <span className="flex items-center gap-1 text-yellow-400 font-semibold text-sm md:text-md">
-                  <RxStarFilled/>
+                  <RxStarFilled />
                   {movie.vote_average.toFixed(1)}
                 </span>
               </h3>

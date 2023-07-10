@@ -8,6 +8,7 @@ import { getImageUrl, getMediaType, getName } from '@/lib/utils'
 import { SlideHoverLayer } from './ui/SlideHoverLayer'
 import fallback from '../../public/backdrop_fallback.png'
 import { blurDataUrl } from '@/lib/pageConfigs'
+import { SectionTitle } from './ui/SectionTitle'
 
 interface IProps {
   movies: IMovieBasicInfo[] | ITvBasicInfo[]
@@ -17,7 +18,7 @@ export const Recommendations: FC<IProps> = ({ movies }) => {
   const { backdrop } = imageConfigs
   return (
     <section>
-      <h2 className="font-bold text-xl mb-2">Phim đề xuất</h2>
+      <SectionTitle>Phim đề xuất</SectionTitle>
       <Carousel>
         {movies.map((movie, i) => (
           <Slide
@@ -34,7 +35,7 @@ export const Recommendations: FC<IProps> = ({ movies }) => {
               height={backdrop.sm.height}
               className="w-full h-full block rounded-md"
               priority={i === 0}
-              placeholder='blur'
+              placeholder="blur"
               blurDataURL={blurDataUrl}
             />
             <SlideHoverLayer

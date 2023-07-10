@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { getImageUrl } from '@/lib/utils'
 import fallback from '../../public/backdrop_fallback.png'
 import { blurDataUrl } from '@/lib/pageConfigs'
+import { SectionTitle } from './ui/SectionTitle'
 
 interface IProps {
   images: IImage[]
@@ -16,7 +17,7 @@ export const MovieImage: FC<IProps> = ({ images }) => {
   const { backdrop } = imageConfigs
   return (
     <section>
-      <h2 className="text-xl font-bold mb-2">Hình ảnh phim</h2>
+      <SectionTitle>Hình ảnh phim</SectionTitle>
       <Carousel>
         {images.length > 0 ? (
           images.map(image => (

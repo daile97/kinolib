@@ -4,6 +4,7 @@ import { Info } from '@/components/Info'
 import { MovieImage } from '@/components/MovieImage'
 import { Recommendations } from '@/components/Recommendations'
 import { Seasons } from '@/components/Seasons'
+import { Main } from '@/components/ui/Main'
 import { getTVDetails } from '@/lib/utils'
 
 const TVDetailPage = async ({ params }: { params: { id: string } }) => {
@@ -14,7 +15,7 @@ const TVDetailPage = async ({ params }: { params: { id: string } }) => {
       (video.type === 'Trailer' || video.type === 'Teaser')
   )
   return (
-    <main className="px-5 md:px-10 lg:px-40 flex flex-col gap-3">
+    <Main>
       <DetailHero
         video={
           trailer
@@ -33,11 +34,10 @@ const TVDetailPage = async ({ params }: { params: { id: string } }) => {
       <Cast casts={data.credits.cast.slice(0, 8)} />
       <Seasons seasons={data.seasons} />
       <MovieImage images={data.images.backdrops} />
-      {
-        data.recommendations.results.length > 0 &&
-      <Recommendations movies={data.recommendations.results} />
-      }
-    </main>
+      {data.recommendations.results.length > 0 && (
+        <Recommendations movies={data.recommendations.results} />
+      )}
+    </Main>
   )
 }
 

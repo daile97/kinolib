@@ -1,6 +1,7 @@
 import { IGenre } from '@/lib/types'
 import { FC } from 'react'
 import { RxStarFilled } from 'react-icons/rx'
+import { SectionTitle } from './ui/SectionTitle'
 
 interface IProps {
   title: string
@@ -15,7 +16,7 @@ export const Info: FC<IProps> = ({
   overview,
   tagline,
   rating,
-  genres,
+  genres
 }) => {
   return (
     <section>
@@ -30,12 +31,12 @@ export const Info: FC<IProps> = ({
         </span>
       </p>
       {tagline && (
-        <blockquote className="text-center italic mt-3">
+        <blockquote className="text-center italic my-2">
           &ldquo;{tagline}&rdquo;
         </blockquote>
       )}{' '}
-      <h2 className="font-bold text-xl mt-3">Nội dung chính</h2>
-      <p>{overview || <span className="italic">Đang cập nhật</span>}</p>
+      <SectionTitle className='mb-1'>Nội dung chính</SectionTitle>
+      <p className='leading-tight'>{overview || <span className="italic">Đang cập nhật</span>}</p>
     </section>
   )
 }

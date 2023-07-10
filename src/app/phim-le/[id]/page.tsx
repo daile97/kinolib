@@ -5,6 +5,7 @@ import { DetailHero } from '@/components/DetailHero'
 import { Info } from '@/components/Info'
 import { MovieImage } from '@/components/MovieImage'
 import { Recommendations } from '@/components/Recommendations'
+import { Main } from '@/components/ui/Main'
 import { getMovieDetails } from '@/lib/utils'
 
 const MovieDetailPage = async ({ params }: { params: { id: string } }) => {
@@ -15,7 +16,7 @@ const MovieDetailPage = async ({ params }: { params: { id: string } }) => {
       (video.type === 'Trailer' || video.type === 'Teaser')
   )
   return (
-    <main className="px-5 md:px-12 lg:px-40 flex flex-col gap-3">
+    <Main>
       <DetailHero
         video={
           trailer
@@ -44,7 +45,7 @@ const MovieDetailPage = async ({ params }: { params: { id: string } }) => {
       {data.recommendations.results.length > 0 && (
         <Recommendations movies={data.recommendations.results} />
       )}
-    </main>
+    </Main>
   )
 }
 
