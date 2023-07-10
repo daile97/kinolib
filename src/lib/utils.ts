@@ -6,6 +6,7 @@ import {
   IMovieBasicInfo,
   IMovieDetails,
   IMovieSearchResult,
+  IPersonDetail,
   IResponses,
   ITVDetails,
   ITvBasicInfo,
@@ -106,4 +107,10 @@ export const getSearchResult = (term: string) =>
   fetcher<IResponses<IMovieSearchResult | ITvSearchResult | ICastSearchResult>>(
     '/search/multi',
     `?query=${term}&include_adult=false&language=vi-VNpage=1`
+  )
+
+export const getPersonDetail = (id: number) =>
+  fetcher<IPersonDetail>(
+    `/person/${id}`,
+    '?append_to_response=movie_credits,tv_credits&language=vi-VN'
   )

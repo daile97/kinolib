@@ -31,7 +31,7 @@ export const MovieCard: FC<IProps> = ({ filePath, title, id, route }) => {
             blurDataURL={blurDataUrl}
           />
         </div>
-      <h2 className='text-sm font-semibold'>{title}</h2>
+      <h2 className='font-semibold mt-1 text-lg'>{title}</h2>
       </Link>
     </div>
   )

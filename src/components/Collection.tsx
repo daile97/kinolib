@@ -30,7 +30,7 @@ export const Collection: FC<IProps> = ({ collection }) => {
           placeholder="blur"
           blurDataURL={blurDataUrl}
         />
-        <h3 className="font-semibold text-zinc-300">{collection.name}</h3>
+        <h3 className="font-semibold text-zinc-200 mt-1">{collection.name}</h3>
       </div>
     </div>
   )

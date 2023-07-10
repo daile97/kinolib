@@ -17,6 +17,7 @@ export const Cast: FC<IProps> = ({ casts }) => {
             filePath={cast.profile_path}
             name={cast.name}
             key={cast.id}
+            id={cast.id}
           />
         ))}
       </div>

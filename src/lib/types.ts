@@ -133,3 +133,20 @@ export interface IResponses<T> {
   results: T[]
   total_pages: number
 }
+
+export interface IPersonDetail {
+  id: number
+  name: string
+  also_known_as: string[]
+  biography: string
+  birthday: string
+  gender: number
+  place_of_birth: string[]
+  profile_path: string
+  movie_credits: {
+    cast: IMovieBasicInfo[]
+  }
+  tv_credits: {
+    cast: ITvBasicInfo[]
+  }
+}

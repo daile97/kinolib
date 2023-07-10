@@ -19,7 +19,7 @@ export const Seasons: FC<IProps> = ({ seasons }) => {
       <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2">
         {seasons.map(season => (
           <div key={season.id}>
-            <div className="w-full aspect-[3/4]">
+            <div className="w-full aspect-[2/3]">
               <Image
                 src={
                   getImageUrl(poster.sm.route, season.poster_path || '') ||
@@ -33,7 +33,7 @@ export const Seasons: FC<IProps> = ({ seasons }) => {
                 blurDataURL={blurDataUrl}
               />
             </div>
-            <h3>{season.name}</h3>
+            <h3 className='font-semibold text-zinc-200 mt-1'>{season.name}</h3>
           </div>
         ))}
       </div>
