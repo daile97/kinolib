@@ -2,6 +2,7 @@ import { cx } from 'class-variance-authority'
 import { ClassValue } from 'class-variance-authority/dist/types'
 import { twMerge } from 'tailwind-merge'
 import {
+  ICast,
   ICastSearchResult,
   IMovieBasicInfo,
   IMovieDetails,
@@ -114,3 +115,6 @@ export const getPersonDetail = (id: number) =>
     `/person/${id}`,
     '?append_to_response=movie_credits,tv_credits&language=vi-VN'
   )
+
+export const getTrendingPeople = () =>
+  fetcher<IResponses<ICast>>('/trending/person/day', '?language=vi-VN')
