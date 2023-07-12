@@ -1,4 +1,5 @@
 import { IMovieBasicInfo, IResponses, ITvBasicInfo } from './types'
+
 import {
   getCNMovie,
   getCNTV,
@@ -13,6 +14,8 @@ import {
 } from './utils'
 
 export const blurDataUrl = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAARCAYAAADkIz3lAAAAGElEQVR42mNkY5Q/yEAEYBxVOKpwECkEAP7jD2ldWTIFAAAAAElFTkSuQmCC"
+
+export const origin = process.env.NEXT_PUBLIC_VERCEL_URL
 
 interface INavItem {
   title: string

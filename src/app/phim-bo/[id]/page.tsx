@@ -5,6 +5,7 @@ import { MovieImage } from '@/components/MovieImage'
 import { Recommendations } from '@/components/Recommendations'
 import { Seasons } from '@/components/Seasons'
 import { Main } from '@/components/ui/Main'
+import { origin } from '@/lib/pageConfigs'
 import { getTVDetails } from '@/lib/utils'
 
 const TVDetailPage = async ({ params }: { params: { id: string } }) => {
@@ -19,7 +20,7 @@ const TVDetailPage = async ({ params }: { params: { id: string } }) => {
       <DetailHero
         video={
           trailer
-            ? `https://www.youtube.com/embed/${trailer?.key}?controls=0`
+            ? `https://www.youtube.com/embed/${trailer?.key}?controls=0&origin=${origin}`
             : null
         }
         filePath={data.backdrop_path || ''}

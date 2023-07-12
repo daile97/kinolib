@@ -6,6 +6,7 @@ import { Info } from '@/components/Info'
 import { MovieImage } from '@/components/MovieImage'
 import { Recommendations } from '@/components/Recommendations'
 import { Main } from '@/components/ui/Main'
+import { origin } from '@/lib/pageConfigs'
 import { getMovieDetails } from '@/lib/utils'
 
 const MovieDetailPage = async ({ params }: { params: { id: string } }) => {
@@ -20,7 +21,7 @@ const MovieDetailPage = async ({ params }: { params: { id: string } }) => {
       <DetailHero
         video={
           trailer
-            ? `https://www.youtube.com/embed/${trailer?.key}?controls=0`
+            ? `https://www.youtube.com/embed/${trailer?.key}?controls=0&origin=${origin}`
             : null
         }
         filePath={data.backdrop_path || ''}
